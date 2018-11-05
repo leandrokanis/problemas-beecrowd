@@ -2,11 +2,12 @@ f = e
 
 all:
 	clear
-	node $(f).js < input > output
+	node $(f).js < input
 init:
 	clear
-	touch output ans input
-	touch $(f).js
+	touch output ans input | clear
+	cp ../templates/template.js $(f).js | clear
+	ls
 diff:
 	clear
 	node $(f).js < input > output
@@ -14,4 +15,5 @@ diff:
 	colordiff output ans
 clean:
 	clear
-	rm output ans input
+	rm output ans input | clear
+	ls
