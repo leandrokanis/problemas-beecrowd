@@ -1,12 +1,13 @@
-f = 1001
+f = 1005
 
 all:
 	clear
-	node $(f).js < input > output
+	node $(f).js < input
 init:
 	clear
 	touch output ans input
-	touch $(f).js
+	cp ../templates/template.js $(f).js | clear
+	ls
 diff:
 	clear
 	node $(f).js < input > output
