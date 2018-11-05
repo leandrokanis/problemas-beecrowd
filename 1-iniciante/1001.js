@@ -1,7 +1,19 @@
-var input = require('fs').readFileSync('/dev/stdin', 'utf8');
-var lines = input.split('\n');
+const raw_input = require('fs').readFileSync('/dev/stdin', 'utf8');
+const lines = raw_input.split('\n');
+const input = () => parseInt(lines.shift()) ;
 
-var a = parseInt(lines.shift());
-var b = parseInt(lines.shift());
+const sum = (x,y) => {
+  return (x+y);
+};
 
-console.log('X = ' + (a+b));
+const main = () => {
+  const a = input();
+  const b = input();
+
+  return (
+    'X = ' + sum(a, b)
+  );
+
+};
+
+console.log(main());
