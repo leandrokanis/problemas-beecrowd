@@ -1,20 +1,17 @@
-file = e
+f = e
 
 all:
 	clear
-	g++ $(file).cpp -o app.out -std=c++11 -lm -Wall -O2
-	clear
-	cat input.txt | ./app.out
+	node $(f).js < input > output
 init:
 	clear
-	touch $(file).cpp output.txt ans.txt input.txt
+	touch output ans input
+	touch $(f).js
 diff:
 	clear
-	g++ $(file).cpp -o app.out -std=c++11 -lm -Wall -O2
+	node $(f).js < input > output
 	clear
-	cat input.txt | ./app.out > output.txt
-	clear
-	diff output.txt ans.txt
+	diff output ans
 clean:
 	clear
-	rm output.txt ans.txt app.out input.txt
+	rm output ans input
