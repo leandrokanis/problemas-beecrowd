@@ -12,7 +12,7 @@ diff:
 	clear
 	node $(f).js < input > output
 	clear
-	colordiff output ans
+	colordiff output ans -s
 clean:
 	clear
 	rm output ans input | clear
