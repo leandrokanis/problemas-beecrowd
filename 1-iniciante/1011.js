@@ -4,7 +4,7 @@ const input = () => parseFloat(lines.shift()) ;
 
 const volume = (r) => {
   const pi =  3.14159;
-  return ( (4.0/3.0) * pi * r * r * r ).toFixed(3);
+  return ( (4.0/3.0) * pi * Math.pow(r, 3) ).toFixed(3);
 };
 
 const main = () => {
