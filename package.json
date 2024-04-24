@@ -28,6 +28,6 @@
     "test": "jest",
     "lint": "eslint 'src/**/*.js' --fix",
     "format": "prettier-eslint 'server/**/*.{js,json}' --write",
-    "new": "cp ../templates/template.js $(node -p \"require('./package.json').f\").js"
+    "new": "node .tools/generate.js"
   }
 }
