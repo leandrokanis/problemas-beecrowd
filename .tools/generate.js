@@ -1,20 +1,41 @@
 const fs = require('fs');
 const path = require('path');
 
+// Get absolute paths for template files
 const templatePath = path.resolve(__dirname, 'templates', 'template.js');
 const templateSpecPath = path.resolve(__dirname, 'templates', 'template.spec.js');
 
+// Read the template files
 const template = fs.readFileSync(templatePath, 'utf8');
 const templateSpec = fs.readFileSync(templateSpecPath, 'utf8');
 
 const args = process.argv.slice(2);
 
-function generate(fileName) {
-  const fileContent = template.replace(/__FILENAME__/g, fileName)
-  const specFileContent = templateSpec.replace(/__FILENAME__/g, fileName)
-
-  fs.writeFileSync(`${fileName}.js`, fileContent)
-  fs.writeFileSync(`${fileName}.spec.js`, specFileContent)
+function fileExists(filePath) {
+  return fs.existsSync(filePath);
 }
 
-generate(args[0])
+function generate(fileName) {
+  // Replace the placeholder __FILENAME__ with the actual file name
+  const fileContent = template.replace(/__FILENAME__/g, fileName);
+  const specFileContent = templateSpec.replace(/__FILENAME__/g, fileName);
+
+  // Get the current working directory
+  const currentDir = process.cwd();
+
+  // Get absolute paths for output files in the current directory
+  const outputFile = path.resolve(currentDir, `${fileName}.js`);
+  const specOutputFile = path.resolve(currentDir, `${fileName}.spec.js`);
+
+  // Check if files already exist
+  if (fileExists(outputFile) || fileExists(specOutputFile)) {
+    console.log('Error: File already exists.');
+    return;
+  }
+
+  // Write the files to disk
+  fs.writeFileSync(outputFile, fileContent);
+  fs.writeFileSync(specOutputFile, specFileContent);
+}
+
+generate(args[0]);
