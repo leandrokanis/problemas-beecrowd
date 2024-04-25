@@ -31,7 +31,7 @@
   },
   "scripts": {
     "test": "jest",
-    "lint": "eslint --ignore-path .eslintignore --ext .js,.ts",
+    "lint": "eslint --fix .js,.ts",
     "format": "prettier-eslint 'server/**/*.{js,json}' --write",
     "g": "node .tools/generate.js"
   }

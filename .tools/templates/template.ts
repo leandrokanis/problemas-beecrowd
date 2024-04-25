@@ -4,7 +4,7 @@ const sum = (x: number, y: number): string => {
 };
 
 const main = (fileInput: string): string => {
-     const lines = fileInput.split('\n');
+  const lines = fileInput.split('\n');
 
   const [a, b] = lines.map(Number);
 
