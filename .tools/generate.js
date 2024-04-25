@@ -2,8 +2,8 @@ const fs = require('fs');
 const path = require('path');
 
 // Get absolute paths for template files
-const templatePath = path.resolve(__dirname, 'templates', 'template.js');
-const templateSpecPath = path.resolve(__dirname, 'templates', 'template.spec.js');
+const templatePath = path.resolve(__dirname, 'templates', 'template.ts');
+const templateSpecPath = path.resolve(__dirname, 'templates', 'template.spec.ts');
 
 // Read the template files
 const template = fs.readFileSync(templatePath, 'utf8');
@@ -24,8 +24,8 @@ function generate(fileName) {
   const currentDir = process.cwd();
 
   // Get absolute paths for output files in the current directory
-  const outputFile = path.resolve(currentDir, `${fileName}.js`);
-  const specOutputFile = path.resolve(currentDir, `${fileName}.spec.js`);
+  const outputFile = path.resolve(currentDir, `${fileName}.ts`);
+  const specOutputFile = path.resolve(currentDir, `${fileName}.spec.ts`);
 
   // Check if files already exist
   if (fileExists(outputFile) || fileExists(specOutputFile)) {

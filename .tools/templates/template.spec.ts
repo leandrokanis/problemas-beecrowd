@@ -1,9 +1,9 @@
-const { main } = require('./__FILENAME__')
+import { main } from './__FILENAME__'
 
 jest.mock('fs')
 
-let fileInput
-let fileOutput
+let fileInput: string
+let fileOutput: string
 
 describe('__FILENAME__', () => {
   test('example 1 ', () => {
